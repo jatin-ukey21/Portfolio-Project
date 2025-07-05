@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white backdrop-blur-md shadow-md z-50 flex justify-between items-center px-4 lg:px-44 py-4">
+    <nav className="fixed top-0 left-0 w-full  bg-white/80 backdrop-blur-md shadow-md z-50 flex justify-between items-center px-4 lg:px-44 py-4">
       <div >
         <span className="font-bold text-xl text-blue-600">Jatin Ukey</span>
       </div>

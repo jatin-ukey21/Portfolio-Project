@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/About";
 import "./index.css";
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        {/* <About /> */}
+        {/* You can add more sections here as needed */}
       </main>
     </div>
   );
