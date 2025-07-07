@@ -6,7 +6,7 @@ export default function About() {
     return (
         <section
         id="about"
-        className="min-h-screen w-full flex flex-col px-4 py-10 items-center"
+        className="h-fit w-full flex flex-col px-4 sm:px-6 lg:px-8 py-10 items-center"
         >
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mt-10 space-y-5">

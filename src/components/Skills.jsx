@@ -1,6 +1,6 @@
 export default function Skills() {
     return (
-        <section id="skills" className="min-h-screen w-full flex flex-col px-4 py-10 items-center bg-gray-50 mt-8">
+        <section id="skills" className="h-fit w-full flex flex-col px-4 sm:px-6 lg:px-8 py-10 pb-16 items-center bg-gray-50 mt-8">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mt-10 space-y-5">
                     <h2 className="text-3xl sm:text-4xl font-bold">Technical Skills</h2>

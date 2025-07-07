@@ -13,7 +13,7 @@ export default function Hero() {
               Passionate software engineering student with a strong background in full-stack development, specializing in Java, Spring Boot, ReactJS, and cloud technologies. Currently pursuing a B.Tech in Computer Science and Engineering, with hands-on experience in building scalable applications and collaborating in agile environments. Excited to contribute to impactful projects while continuously growing skills in modern web frameworks and emerging technologies.
             </p>
             <div id="buttons-container" className="flex flex-wrap gap-5">
-              <button className="bg-blue-600 hover:bg-blue-700 px-3 py-2 text-sm font-semibold text-white rounded-md">View My Work</button>
+              <button className="bg-blue-600 hover:bg-blue-700 px-3 py-2 text-sm font-semibold text-white rounded-md transition-all delay-100"><a href="#projects">View My Work</a></button>
               <a
                 href="/src/assets/JATIN_UKEY_RESUME1.pdf"   // adjust path if needed
                 target="_blank"
