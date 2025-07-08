@@ -1,11 +1,12 @@
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
-export default function Hero({setActiveSection}) {
+export default function Hero({ setActiveSection }) {
   const { ref, inView } = useInView({ threshold: 0.5 });
 
-    if (inView) {
-        setActiveSection("hero");
-    }
+  if (inView) {
+    setActiveSection("hero");
+  }
   return (
     <section
       id="hero"
@@ -35,17 +36,29 @@ export default function Hero({setActiveSection}) {
             </div>
           </div>
           <div id="right" className="flex justify-center items-center">
-            {/* Profile Image */}
-            <div className="relative">
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.7 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+              className="relative"
+            >
               <div className="w-80 h-80 rounded-full overflow-hidden flex items-center shadow-2xl border-8 border-white bg-gray-300">
-                <img src="/src/assets/Jatin_profile_pic.jpg" className="w-full h-full object-contain"></img>
+                <img
+                  src="/src/assets/Jatin_profile_pic.jpg"
+                  className="w-full h-full object-contain"
+                  alt="Jatin"
+                />
               </div>
               <div className="absolute w-12 h-12 flex items-center justify-center bottom-[-16px] right-[-16px] bg-blue-600 text-white rounded-full p-3 shadow-lg">
                 <i className="fa-solid fa-code text-white"></i>
               </div>
-            </div>
+            </motion.div>
           </div>
+
         </div>
+
+
       </div>
 
     </section>

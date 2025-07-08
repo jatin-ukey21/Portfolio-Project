@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="w-full min-h-screen flex flex-col">
       <Navbar activeSection={activeSection} />
-      <main className="flex-1">
+      <main className="flex-1"> 
         <Hero setActiveSection={setActiveSection} />
         <About setActiveSection={setActiveSection} />
         <Skills setActiveSection={setActiveSection} />
