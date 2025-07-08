@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-export default function Navbar() {
+export default function Navbar({ activeSection }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -21,15 +21,23 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50 flex justify-between items-center px-4 lg:px-44 py-4">
         <span className="font-bold text-xl text-blue-600">Jatin Ukey</span>
 
-        {/* Desktop Nav */}
+        {/* ✅ Desktop Nav */}
         <ul className="hidden lg:flex lg:gap-7 lg:text-gray-700">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <a href={link.href} className="hover:text-blue-600 ">
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.slice(1);
+            return (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className={`hover:text-blue-600 transition ${
+                    isActive ? "text-blue-600 font-semibold" : ""
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Mobile Menu Icon */}
@@ -58,21 +66,3 @@ export default function Navbar() {
     </>
   );
 }
-
-// export default function Navbar() {
-//   return (
-//     <nav className="fixed top-0 left-0 w-full  bg-white/80 backdrop-blur-md shadow-md z-50 flex justify-between items-center px-4 lg:px-44 py-4">
-//       <div >
-//         <span className="font-bold text-xl text-blue-600">Jatin Ukey</span>
-//       </div>
-//       <ul className="hidden lg:flex lg:gap-7 lg:text-gray-700">
-//         <li><a href="#hero" className="text-primary font-semibold">Home</a></li>
-//         <li><a href="#about" className="hover:text-primary">About</a></li>
-//         <li><a href="#skills" className="hover:text-primary">Skills</a></li>
-//         <li><a href="#projects" className="hover:text-primary">Projects</a></li>
-//         <li><a href="#education" className="hover:text-primary">Education</a></li>
-//         <li><a href="#contact" className="hover:text-primary">Contact</a></li>
-//       </ul>
-//     </nav>
-//   );
-// }

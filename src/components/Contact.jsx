@@ -4,12 +4,19 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import Github from "lucide-react/dist/esm/icons/github";
 import Linkedin from "lucide-react/dist/esm/icons/linkedin";
 import Twitter from "lucide-react/dist/esm/icons/twitter";
+import { useInView } from "react-intersection-observer";
 
 
-export default function Contact() {
+export default function Contact({setActiveSection}) {
+    const { ref, inView } = useInView({ threshold: 0.5 });
+
+    if (inView) {
+        setActiveSection("contact");
+    }
     return (
         <section
             id="contact"
+            ref={ref}
             className="h-fit w-full px-4 sm:px-6 lg:px-8 py-16"
         >
             <div className="max-w-6xl mx-auto">

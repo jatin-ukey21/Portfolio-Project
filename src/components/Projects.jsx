@@ -1,7 +1,15 @@
-export default function Skills() {
+import { useInView } from "react-intersection-observer";
+
+export default function Skills({setActiveSection}) {
+    const { ref, inView } = useInView({ threshold: 0.5 });
+
+    if (inView) {
+        setActiveSection("projects");
+    }
     return (
         <section
             id="projects"
+            ref={ref}
             className="min-h-screen w-full flex flex-col px-4 sm:px-6 lg:px-8 py-16 items-center"
         >
             <div className="max-w-6xl mx-auto">

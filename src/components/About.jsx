@@ -1,11 +1,18 @@
 import { FaServer } from "react-icons/fa";
 import { FaReact } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { useInView } from "react-intersection-observer";
 
-export default function About() {
+export default function About({ setActiveSection }) {
+    const { ref, inView } = useInView({ threshold: 0.5 });
+
+    if (inView) {
+        setActiveSection("about");
+    }
     return (
         <section
         id="about"
+        ref={ref}
         className="h-fit w-full flex flex-col px-4 sm:px-6 lg:px-8 py-10 items-center"
         >
             <div className="max-w-6xl mx-auto">

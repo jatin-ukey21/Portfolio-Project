@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -9,18 +10,19 @@ import Footer from "./components/Footer";
 import "./index.css";
 
 function App() {
+  const [activeSection, setActiveSection] = useState("");
+
   return (
     <div className="w-full min-h-screen flex flex-col">
-      <Navbar />
+      <Navbar activeSection={activeSection} />
       <main className="flex-1">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <EducationAndCertifications />
-        <Contact />
+        <Hero setActiveSection={setActiveSection} />
+        <About setActiveSection={setActiveSection} />
+        <Skills setActiveSection={setActiveSection} />
+        <Projects setActiveSection={setActiveSection} />
+        <EducationAndCertifications setActiveSection={setActiveSection} />
+        <Contact setActiveSection={setActiveSection} />
         <Footer />
-        {/* You can add more sections here as needed */}
       </main>
     </div>
   );

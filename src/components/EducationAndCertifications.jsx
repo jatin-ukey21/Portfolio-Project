@@ -1,7 +1,15 @@
-export default function EducationAndCertifications() {
+import { useInView } from "react-intersection-observer";
+
+export default function EducationAndCertifications({setActiveSection}) {
+    const { ref, inView } = useInView({ threshold: 0.5 });
+
+    if (inView) {
+        setActiveSection("education");
+    }
     return (
         <section
             id="education"
+            ref={ref}
             className="h-fit w-full flex flex-col px-4 sm:px-6 lg:px-8 py-16 items-center bg-gray-50"
         >
             <div className="max-w-6xl mx-auto">

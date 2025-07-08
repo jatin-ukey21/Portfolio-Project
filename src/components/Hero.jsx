@@ -1,7 +1,15 @@
-export default function Hero() {
+import { useInView } from "react-intersection-observer";
+
+export default function Hero({setActiveSection}) {
+  const { ref, inView } = useInView({ threshold: 0.5 });
+
+    if (inView) {
+        setActiveSection("hero");
+    }
   return (
     <section
       id="hero"
+      ref={ref}
       className="h-fit w-full bg-gray-100 pt-24 pb-16 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto">
