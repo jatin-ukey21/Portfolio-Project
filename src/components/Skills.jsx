@@ -12,8 +12,9 @@ export default function Skills({ setActiveSection }) {
     }
   }, [inView]);
     return (
-        <section id="skills" ref={ref} className="h-fit w-full flex flex-col px-4 sm:px-6 lg:px-8 py-7 pb-16 items-center bg-gray-50 mt-8">
-            <div className="max-w-6xl mx-auto">
+        <section id="skills" ref={ref} className="h-fit w-full flex flex-col px-2 sm:px-2 lg:px-8 py-7 pb-16 items-center bg-gray-50 mt-8">
+            <div className="w-full md:max-w-full lg:max-w-6xl lg:mx-auto px-2 sm:px-4">
+
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
