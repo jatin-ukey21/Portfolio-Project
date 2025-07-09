@@ -34,7 +34,7 @@ export default function Hero({ setActiveSection }) {
             <div id="buttons-container" className="flex flex-wrap gap-5">
               <button className="bg-blue-600 hover:bg-blue-700 px-3 py-2 text-sm font-semibold text-white rounded-md transition-all delay-100"><a href="#projects">View My Work</a></button>
               <a
-                href="/src/assets/JATIN_UKEY_RESUME1.pdf"   // adjust path if needed
+                href="/JATIN_UKEY_RESUME1.pdf"   // adjust path if needed
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 border flex gap-4 items-center border-blue-600 px-3 py-2 text-sm font-semibold rounded-md hover:cursor-pointer hover:text-black transition-all hover:bg-blue-50"
