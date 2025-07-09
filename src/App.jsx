@@ -13,7 +13,7 @@ function App() {
   const [activeSection, setActiveSection] = useState("");
 
   return (
-    <div className="w-full min-h-screen flex flex-col">
+    <div className="w-full min-h-screen flex flex-col scroll-smooth">
       <Navbar activeSection={activeSection} />
       <main className="flex-1"> 
         <Hero setActiveSection={setActiveSection} />

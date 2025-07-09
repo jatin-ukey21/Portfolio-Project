@@ -7,12 +7,12 @@ html, body, #root {
   height: 100%;
   box-sizing: border-box;
 }
-html {
+:root {
   scroll-behavior: smooth;
 }
-html, body {
+/* html, body {
   overflow-x: hidden;
-}
+} */
 
 
 

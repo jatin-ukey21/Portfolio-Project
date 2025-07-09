@@ -23,7 +23,7 @@ export default function Contact({ setActiveSection }) {
             ref={ref}
             className="h-fit w-full px-4 sm:px-6 lg:px-8 py-16"
         >
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-6xl mx-auto flex flex-col items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function Contact({ setActiveSection }) {
                     viewport={{ once: true, amount: 0.2 }}
                     className="flex flex-col gap-6 rounded-xl border max-w-4xl mx-auto border-gray-200 py-6 shadow-sm">
                     <div className="grid md:grid-cols-2 gap-8 lg:items-start">
-                        <div className="p-8">
+                        <div className="px-4 py-6 sm:p-6 md:p-8">
                             <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
                             <div className="space-y-4">
                                 <div className="flex items-center gap-3">
@@ -60,25 +60,25 @@ export default function Contact({ setActiveSection }) {
                             </div>
                             <div className="mt-8">
                                 <h4 className="font-semibold mb-4">Connect with me</h4>
-                                <div className="flex space-x-4">
+                                <div className="flex gap-2">
                                     <a href="https://www.linkedin.com/in/jatin-ukey-2666892a7/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="border border-gray-200 flex items-center gap-4 px-2 py-1.5 rounded-lg shadow-sm">
+                                        className="border border-gray-200 flex items-center gap-2 sm:gap-4 px-2 py-1.5 rounded-lg shadow-sm">
                                         <Linkedin className="text-black text-sm w-4 h-4" />
                                         <h4 className="font-semibold text-sm">LinkedIn</h4>
                                     </a>
                                     <a href="https://github.com/jatin-ukey21"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="border border-gray-200 flex items-center gap-4 px-2 py-1.5 rounded-lg shadow-sm">
+                                        className="border border-gray-200 flex items-center gap-2 sm:gap-4 px-2 py-1.5 rounded-lg shadow-sm">
                                         <Github className="text-black text-sm w-4 h-4" />
                                         <h4 className="font-semibold text-sm">GitHub</h4>
                                     </a>
                                     <a href="https://x.com/JatinUkey2105"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="border border-gray-200 flex items-center gap-4 px-2 py-1.5 rounded-lg shadow-sm">
+                                        className="border border-gray-200 flex items-center gap-2 sm:gap-4 px-2 py-1.5 rounded-lg shadow-sm">
                                         <Twitter className="text-black w-5 h-5" />
                                         <h4 className="font-semibold text-sm">Twitter</h4>
                                     </a>
@@ -93,9 +93,9 @@ export default function Contact({ setActiveSection }) {
                                 Let’s connect to collaborate on impactful tech projects!
                             </p>
                             <button className="bg-blue-600 hover:bg-blue-700 w-full flex items-center justify-center py-2 rounded-lg transition-all">
-                                <div className="flex gap-4 items-center">
+                                <div className="flex gap-2 sm:gap-4 items-center">
                                     <HiOutlineMail className="text-white w-4.5 h-4.5" />
-                                    <span className="text-sm text-white font-semibold">Send Message</span>
+                                    <span className="max-w-full text-sm text-white font-semibold">Send Message</span>
                                 </div>
                             </button>
                         </div>
