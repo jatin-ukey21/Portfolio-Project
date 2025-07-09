@@ -1,11 +1,15 @@
 import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
 
-export default function EducationAndCertifications({setActiveSection}) {
-    const { ref, inView } = useInView({ threshold: 0.5 });
+export default function EducationAndCertifications({ setActiveSection }) {
+    const { ref, inView } = useInView({ threshold: 0.2 });
 
-    if (inView) {
-        setActiveSection("education");
-    }
+    useEffect(() => {
+        if (inView) {
+            setActiveSection("education"); // or "about", etc.
+        }
+    }, [inView]);
     return (
         <section
             id="education"
@@ -13,12 +17,22 @@ export default function EducationAndCertifications({setActiveSection}) {
             className="h-fit w-full flex flex-col px-4 sm:px-6 lg:px-8 py-16 items-center bg-gray-50"
         >
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-10 space-y-5">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="text-center mb-12 space-y-5">
                     <h2 className="text-3xl sm:text-4xl font-bold">Education & Certifications</h2>
 
-                </div>
+                </motion.div>
                 <div className="grid md:grid-cols-2 gap-8">
-                    <div id="card-1" className="max-w-full w-full h-fit lg:mr-8 flex flex-col gap-6 py-6 bg-white  mx-auto px-6 shadow-sm rounded-2xl border border-gray-200">
+                    <motion.div id="card-1"
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="max-w-full w-full h-fit lg:mr-8 flex flex-col gap-6 py-6 bg-white  mx-auto px-6 shadow-sm rounded-2xl border border-gray-200">
                         <h2 className="font-semibold">Education</h2>
                         <div id="card-content" className="space-y-4">
                             <div id="education-1">
@@ -32,8 +46,13 @@ export default function EducationAndCertifications({setActiveSection}) {
                                 <p class="text-sm text-gray-500">2023 • 95.30%</p>
                             </div>
                         </div>
-                    </div>
-                    <div id="card-2" className="max-w-full w-full h-fit flex flex-col gap-6 px-6 py-6  mx-auto bg-white shadow-sm rounded-2xl border border-gray-200">
+                    </motion.div>
+                    <motion.div id="card-2"
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="max-w-full w-full h-fit flex flex-col gap-6 px-6 py-6  mx-auto bg-white shadow-sm rounded-2xl border border-gray-200">
                         <h2 className="font-semibold">Certifications</h2>
                         <ul className="list-inside  space-y-2">
                             <li className="flex items-center gap-3">
@@ -65,7 +84,7 @@ export default function EducationAndCertifications({setActiveSection}) {
                                 AWS Certified Cloud Practitioner by Udemy (2025)
                             </li>
                         </ul>
-                    </div>
+                    </motion.div>
 
                 </div>
             </div>

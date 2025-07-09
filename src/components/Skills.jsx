@@ -1,20 +1,24 @@
 import { useInView } from "react-intersection-observer";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Skills({ setActiveSection }) {
-    const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+    const { ref, inView } = useInView({ threshold: 0.2});
 
+     useEffect(() => {
     if (inView) {
-        setActiveSection("skills");
+      setActiveSection("skills"); // or "about", etc.
     }
+  }, [inView]);
     return (
         <section id="skills" ref={ref} className="h-fit w-full flex flex-col px-4 sm:px-6 lg:px-8 py-7 pb-16 items-center bg-gray-50 mt-8">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}
                     className="text-center mt-10 space-y-5"
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold">Technical Skills</h2>

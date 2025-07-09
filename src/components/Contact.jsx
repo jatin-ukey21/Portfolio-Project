@@ -5,14 +5,18 @@ import Github from "lucide-react/dist/esm/icons/github";
 import Linkedin from "lucide-react/dist/esm/icons/linkedin";
 import Twitter from "lucide-react/dist/esm/icons/twitter";
 import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 
-export default function Contact({setActiveSection}) {
-    const { ref, inView } = useInView({ threshold: 0.5 });
+export default function Contact({ setActiveSection }) {
+    const { ref, inView } = useInView({ threshold: 0.4 });
 
-    if (inView) {
-        setActiveSection("contact");
-    }
+    useEffect(() => {
+        if (inView) {
+            setActiveSection("contact"); // or "about", etc.
+        }
+    }, [inView]);
     return (
         <section
             id="contact"
@@ -20,13 +24,23 @@ export default function Contact({setActiveSection}) {
             className="h-fit w-full px-4 sm:px-6 lg:px-8 py-16"
         >
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12 space-y-5">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="text-center mb-12 space-y-5">
                     <h2 className="text-3xl sm:text-4xl font-bold">Get In Touch</h2>
                     <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
                         I'm always open to discussing new opportunities and interesting projects
                     </p>
-                </div>
-                <div className="flex flex-col gap-6 rounded-xl border max-w-4xl mx-auto border-gray-200 py-6 shadow-sm">
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="flex flex-col gap-6 rounded-xl border max-w-4xl mx-auto border-gray-200 py-6 shadow-sm">
                     <div className="grid md:grid-cols-2 gap-8 lg:items-start">
                         <div className="p-8">
                             <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
@@ -72,7 +86,7 @@ export default function Contact({setActiveSection}) {
 
                             </div>
                         </div>
-                        <div className="px-8 md:p-8"> 
+                        <div className="px-8 md:p-8">
                             <h3 class="text-xl font-semibold mb-6">Let's Work Together</h3>
                             <p class="text-gray-600 mb-6">I’m currently seeking opportunities in backend or full-stack development,
                                 building scalable systems with Java, Spring Boot, and modern databases.
@@ -86,7 +100,7 @@ export default function Contact({setActiveSection}) {
                             </button>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

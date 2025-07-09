@@ -4,16 +4,19 @@ import { FaGithub } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function About({ setActiveSection }) {
     const { ref, inView } = useInView({
-        threshold: 0.3,
-        triggerOnce: true
+        threshold: 0.4,
+        
     });
 
+     useEffect(() => {
     if (inView) {
-        setActiveSection("about");
+      setActiveSection("about"); // or "about", etc.
     }
+  }, [inView]);
     return (
         <section
             id="about"
@@ -44,7 +47,8 @@ export default function About({ setActiveSection }) {
                         id="card-1"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.1,ease: "easeInOut" }}
+                        transition={{ duration: 0.5, delay: 0.1,ease: "easeInOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
                         className="transition hover:scale-105 text-center py-6 px-6 bg-white shadow-sm rounded-lg border border-gray-200 flex flex-col gap-6"
                     >
                         <div className="flex flex-col items-center gap-5">
@@ -62,7 +66,8 @@ export default function About({ setActiveSection }) {
                         id="card-2"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.3,ease: "easeInOut" }}
+                        transition={{ duration: 0.5, delay: 0.3,ease: "easeInOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
                         className="transition hover:scale-105 text-center py-6 px-6 bg-white shadow-sm rounded-lg border border-gray-200 flex flex-col gap-6"
                     >
                         <div className="flex flex-col items-center gap-5">
@@ -80,12 +85,13 @@ export default function About({ setActiveSection }) {
                         id="card-3"
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.5,ease: "easeInOut" }}
+                        transition={{ duration: 0.5, delay: 0.5,ease: "easeInOut" }}
+                        viewport={{ once: true, amount: 0.2 }}
                         className="transition hover:scale-105 text-center py-6 px-6 bg-white shadow-sm rounded-lg border border-gray-200 flex flex-col gap-6"
                     >
                         <div className="flex flex-col items-center gap-5">
-                            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                                <FaGithub className="text-4xl text-purple-500 w-6 h-6" />
+                            <div className="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center overflow-visible">
+                                <FaGithub className="text-4xl text-purple-500 w-6 h-6 sm:w-7 sm:h-7 " />
                             </div>
                             <h3 className="text-md font-semibold">Version Control & Collaboration</h3>
                         </div>

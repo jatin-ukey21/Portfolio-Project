@@ -1,11 +1,15 @@
 import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
 
-export default function Skills({setActiveSection}) {
+export default function Skills({ setActiveSection }) {
     const { ref, inView } = useInView({ threshold: 0.5 });
 
-    if (inView) {
-        setActiveSection("projects");
-    }
+    useEffect(() => {
+        if (inView) {
+            setActiveSection("projects"); // or "about", etc.
+        }
+    }, [inView]);
     return (
         <section
             id="projects"
@@ -13,14 +17,24 @@ export default function Skills({setActiveSection}) {
             className="min-h-screen w-full flex flex-col px-4 sm:px-6 lg:px-8 py-16 items-center"
         >
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-10 space-y-5">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="text-center mb-10 space-y-5">
                     <h2 className="text-3xl sm:text-4xl font-bold">Featured Projects</h2>
                     <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
                         Some of my recent work that showcases my skills and passion for development
                     </p>
-                </div>
+                </motion.div>
                 <div className="grid lg:grid-cols-1 gap-8">
-                    <div id="project-1" className="bg-card text-card-foreground flex flex-col gap-6 py-6 max-w-7xl w-full mx-auto px-6 shadow-sm rounded-2xl border border-gray-200">
+                    <motion.div id="project-1"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.05 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="bg-card text-card-foreground flex flex-col gap-6 py-6 max-w-7xl w-full mx-auto px-6 shadow-sm rounded-2xl border border-gray-200">
                         <div className="flex flex-row justify-between items-start gap-5">
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-xl font-semibold">Peer to Peer Skill Exchange Platform</h1>
@@ -57,12 +71,17 @@ export default function Skills({setActiveSection}) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="project-2" className="bg-card text-card-foreground flex flex-col gap-6 py-6 max-w-7xl w-full mx-auto px-6 shadow-sm rounded-2xl border border-gray-200">
+                    </motion.div>
+                    <motion.div id="project-2"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.15 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="bg-card text-card-foreground flex flex-col gap-6 py-6 max-w-7xl w-full mx-auto px-6 shadow-sm rounded-2xl border border-gray-200">
                         <div className="flex flex-row justify-between items-start gap-5">
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-xl font-semibold">VisitorWatch – Real-Time Person Detection System</h1>
-                                <p className="text-gray-500">Developed an automated visitor monitoring 
+                                <p className="text-gray-500">Developed an automated visitor monitoring
                                     and attendance system with live facial recognition and high detection accuracy.</p>
                             </div>
                             <a
@@ -95,7 +114,7 @@ export default function Skills({setActiveSection}) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

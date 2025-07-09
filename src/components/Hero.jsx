@@ -1,12 +1,15 @@
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Hero({ setActiveSection }) {
-  const { ref, inView } = useInView({ threshold: 0.5 });
+  const { ref, inView } = useInView({ threshold: 0.2 });
 
-  if (inView) {
-    setActiveSection("hero");
-  }
+  useEffect(() => {
+    if (inView) {
+      setActiveSection("hero"); // or "about", etc.
+    }
+  }, [inView]);
   return (
     <section
       id="hero"
@@ -15,7 +18,14 @@ export default function Hero({ setActiveSection }) {
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div id="left" className="flex flex-col space-y-6">
+          <motion.div
+            id="left"
+            className="flex flex-col space-y-6"
+            initial={{ opacity: 0, y: 40 }}       // Start slightly below with 0 opacity
+            whileInView={{ opacity: 1, y: 0 }}        // Animate to natural position with full opacity
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}  // Smooth transition
+          >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">Hi, I am <span className="text-blue-600">Jatin Ukey</span></h1>
             <h2 className="text-xl lg:text-2xl text-gray-600">Full Stack Developer and Java Enthusiast</h2>
             <p className="text-lg text-gray-600 leading-relaxed">
@@ -34,7 +44,7 @@ export default function Hero({ setActiveSection }) {
               </a>
 
             </div>
-          </div>
+          </motion.div>
           <div id="right" className="flex justify-center items-center">
 
             <motion.div
