@@ -89,7 +89,7 @@ export default function Skills({ setActiveSection }) {
                         <ul className=" text-blue-800 font-semibold flex gap-2 flex-wrap">
                             <li className="text-xs bg-blue-100 px-2 py-0.5 rounded-md">Git</li>
                             <li className="text-xs bg-blue-100 px-2 py-0.5 rounded-md">GithHub</li>
-                            <li className="text-xs bg-blue-100 px-2 py-0.5 rounded-md">Postman++</li>
+                            <li className="text-xs bg-blue-100 px-2 py-0.5 rounded-md">Postman</li>
                         </ul>
                     </motion.div>
                     <motion.div id="card-6"
