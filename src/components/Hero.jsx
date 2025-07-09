@@ -55,7 +55,7 @@ export default function Hero({ setActiveSection }) {
             >
               <div className="w-80 h-80 rounded-full overflow-hidden flex items-center shadow-2xl border-8 border-white bg-gray-300">
                 <img
-                  src="/src/assets/Jatin_profile_pic.jpg"
+                  src="/Jatin_profile_pic.jpg"
                   className="w-full h-full object-contain"
                   alt="Jatin"
                 />
